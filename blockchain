@@ -1,0 +1,11 @@
+(define-data-var greeting (string-ascii 20) "Bi")
+
+(define-public (set-greeting (new-greeting (string-ascii 20)))
+  (begin
+    (var-set greeting new-greeting)
+    (ok new-greeting)))
+
+(define-read-only (get-greeting)
+  (ok (var-get greeting)))
+  
+clarity-cli compile greeting.clar
